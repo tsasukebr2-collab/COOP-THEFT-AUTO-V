@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" > <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+  <title>AB Software Development</title>
+	
+	<meta name="robots" content="index, follow">
+	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+	<link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link href="http://www.dev-c.com/theme/Innovation/assets/css/reset.css" rel="stylesheet">
+	<link href="http://www.dev-c.com/theme/Innovation/style.css?v=3.2.3" rel="stylesheet">
+	
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	<!--[if lt IE 7 ]>
+    <script src="http://www.dev-c.com/theme/Innovation/assets/js/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+  <![endif]-->
+
+	<meta name="keywords" content="c/c++/delphi development, game modding" />
+	
+</head> 
+<body id="index" >
+	
+	<!-- site header -->
+	<header>
+		<div class="header">
+			<div class="wrapper">
+				
+				<!-- logo/sitename -->
+				<a href="http://www.dev-c.com/" id="logo" >AB Software Development</a>
+				
+				<!-- main navigation -->
+				<nav id="main-nav">
+					<ul>
+						<li class="current active  index"><a href="http://www.dev-c.com/" title="Blog">Blog</a></li>
+<li class="gtav"><a href="http://www.dev-c.com/gtav/" title="GTA V">gta v</a></li>
+<li class="gtaiv"><a href="http://www.dev-c.com/gtaiv/" title="GTA IV">gta iv</a></li>
+<li class="gtasa"><a href="http://www.dev-c.com/gtasa/" title="GTA San Andreas">gta sa</a></li>
+<li class="skyrim"><a href="http://www.dev-c.com/skyrim/" title="Skyrim">skyrim</a></li>
+<li class="fallout4"><a href="http://www.dev-c.com/fallout4/" title="Fallout 4">Fallout</a></li>
+<li class="misc"><a href="http://www.dev-c.com/misc/" title="Miscellaneous tools">misc</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+  </header>	
+	<div class="wrapper clearfix">
+		<!-- page content -->
+
+		<article>
+			<section>
+				
+				<!-- title and content -->
+				<h1> Blog</h1>
+				</br>
+				</br>
+				
+<p>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6378420293255774";
+/* devc_468x60 */
+google_ad_slot = "3175329410";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</p>
+				
+				    <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/scripthookv-enhanced">Script Hook V for Enhanced</a>
+      </h3>
+      <p class="nm_post_date">Published on Mar 23, 2025</p>
+      <div class="nm_post_content"><p><strong><a href="gtav/scripthookv/" target="_blank">ScriptHookV</a></strong> now supports recently released GTA V Enhanced. ASI script plugins for the legacy version of the game are compatibile with the enhanced one, <u>while</u> still expect for some mods to require an enhanced update in particular. Have fun !</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/major-update-for-cleo-android">CLEO Android, major update</a>
+      </h3>
+      <p class="nm_post_date">Published on Apr  4, 2021</p>
+      <div class="nm_post_content"><p>I finally updated <strong><a href="/misc/cleo-android" target="_blank">CLEO Android</a></strong> to support the latest versions of GTA III (v1.8), VC (v1.09) and SA (v2.00), now the library supports GTA LCS (v2.2, v2.4), additionally the library has been ported on PSP/PPSSPP to support both LCS and VCS, covering the whole set of RW-based GTA games. The library is enhanced with plugin support now, allowing to add custom script opcodes and even more using a simple crossplatform SDK (Android/PSP).</p>
+<p>The project's library (libcleo.so) c++ sources are&nbsp;<a href="https://gtaforums.com/topic/663125-android-cleo-android/?do=findComment&amp;comment=1072439323" target="_blank">public</a> now (2024).</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/script-hook-rdr2-is-released">Script Hook RDR2 is released</a>
+      </h3>
+      <p class="nm_post_date">Published on Nov 14, 2019</p>
+      <div class="nm_post_content"><p><strong><a href="/rdr2/scripthookrdr2/">Script Hook RDR2</a></strong> with the <strong>Native Trainer</strong> are finally released ! Have fun !</p></div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/fallout4-shadow-boost-released">Fallout 4 Shadow Boost is released</a>
+      </h3>
+      <p class="nm_post_date">Published on Nov 21, 2015</p>
+      <div class="nm_post_content"><p>Users have noticed that in some locations of <a href="/fallout4/">Fallout 4</a> fps gets low even with a good hardware, mostly it happens in the areas with lots of objects, <a href="/fallout4/shadowboost/"><strong>Shadow Booost</strong></a> plugin is aimed to change that. This plugin adds an ability to dynamically control shadow draw distance depending on desired user defined fps. Make sure to test it out!</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/gta-v-classic-handling-released">GTA V Classic Handling released</a>
+      </h3>
+      <p class="nm_post_date">Published on May 23, 2015</p>
+      <div class="nm_post_content"><p>GTA V features almost arcade car controls and physics, <a href="/gtav/">Classic Handling</a> makes it the way it was in IV. Based on original IV handling, applies only to cars, including dlc ones. Enjoy!</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/script-hook-is-released">Script Hook is released</a>
+      </h3>
+      <p class="nm_post_date">Published on Apr 23, 2015</p>
+      <div class="nm_post_content"><p><strong><a href="/gtav/scripthookv/">Script Hook V</a></strong> is released among with the <strong>Native Trainer</strong> ! Have fun with GTA V guys !</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/gta-v-native-database">GTA V Native Database</a>
+      </h3>
+      <p class="nm_post_date">Published on Mar  5, 2015</p>
+      <div class="nm_post_content"><p><a href="/nativedb/" target="_blank">NATIVE DB</a> is launched! This project is aimed to gather every piece of information about script native functions that we have, think of it as of native wiki where anyone who wants to contribute can do so and everyone who needs the latest script documentation or the header with natives for ScriptHook can get it right there!</p>
+</div>
+          </div>
+        <div class="nm_post">
+      <h3 class="nm_post_title">
+        <a href="http://www.dev-c.com/post/cleo-android-update-1">CLEO update</a>
+      </h3>
+      <p class="nm_post_date">Published on Dec  5, 2014</p>
+      <div class="nm_post_content"><p>Update for <a href="/misc/cleo-android">CLEO</a> is here! Latest version of GTA San Andreas is fully supported now, library compatibility is improved! Also GTA San Andreas cheats script supports 3gb RAM devices now.</p>
+</div>
+          </div>
+    <div class="nm_page_nav">    <div class="left">
+      <a href="http://www.dev-c.com/page/1">
+        &larr; Older Posts      </a>
+    </div>
+    </div>				
+				<!-- page footer -->
+				<div class="footer">
+					<!-- <p>Published on <time datetime="2013-10-16" pubdate>October 16th, 2013</time></p> -->
+				</div>
+			</section>
+			
+		</article>
+		
+		<!-- include the sidebar template -->
+		<aside id="sidebar">
+
+	<div class="section" id="socialmedia" >
+		<h2>Contact</h2>
+		<div class="icons">
+						
+		<!-- <img src="http://www.dev-c.com/theme/Innovation/assets/images/break.png" /> -->
+		    <table style="border-collapse: collapse; border: none; padding: 0; margin: 0; margin-left: -4px; margin-top: -1px;">
+		        <tbody>
+		            <tr>
+		                <td style="padding: 0 0 4px 0; margin: 0; font-size: 12px; line-height: 1; font-family: inherit; white-space: nowrap;">
+			<span style="color: inherit; opacity: 0.25;">&bull;</span> rangeralexander@gmail.com</td>
+		            </tr>
+		            <tr>
+		                <td style="padding: 0; margin: 0; line-height: 1; font-family: inherit; white-space: nowrap;">
+			<span style="color: inherit; opacity: 0.25;">&bull;</span> <a href="https://gtaforums.com/topic/932648-script-hook-v/" target="_blank"
+			   style="font-size: 12px; text-decoration: none;">gtaforums.com</a></td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</div>
+	</div>
+	
+	<!-- wrap each sidebar section like this -->
+	<div class="section">
+		<h2>ABOUT</h2>
+<p>I'm Alexander Blade and this site of mine is dedicated to the software development, especially that ones which require a lot of assembler digging in order to be built. Most of the tools and plugins here are dedicated to the game modding, my mods can be found on this site too. I'm involved into the development of Open IV, this is the biggest and the greatest project we ever did.</p>
+<p>For the system software development I prefer to use that programming language which is more suitable for the task, so most of my code is written on C/C++ and Delphi.</p>
+	</div>
+
+	
+</aside>
+	</div>
+
+
+<script src="/cookiechoices.js" defer></script>
+<script>
+ document.addEventListener('DOMContentLoaded', function(event) {
+ window.cookieChoices && cookieChoices.showCookieConsentBar && cookieChoices.showCookieConsentBar(
+ (window.cookieOptions && cookieOptions.msg) || 'This site uses cookies to store information on your computer. By continuing to use this site you consent to our use of cookies.',
+ (window.cookieOptions && cookieOptions.close) || 'I Accept',
+ (window.cookieOptions && cookieOptions.learn) || 'Details',
+ (window.cookieOptions && cookieOptions.link) || '/privacy.htm');
+ });
+</script>
+	
+	
+<!-- include the footer template -->
+
+	<!-- site footer -->
+	<footer class="clearfix" >
+		
+		
+	 	<div class="wrapper">
+			<div class="left">&nbsp;(C) <a href="http://www.dev-c.com/" >Alexander Blade</a> 2006-2026</div>
+			<div class="right"><a href="/privacy.htm" >Privacy policy</a>&nbsp;</div>
+		</div>
+		
+		
+	</footer>
+	 
+</body>
+</html>
