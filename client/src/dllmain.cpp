@@ -12,8 +12,9 @@
 
 namespace {
 
-void KeyboardHandler(u32 key, u16 /*repeats*/, u8 /*scan*/, u8 /*extended*/,
-                     u8 /*withAlt*/, u8 /*wasDown*/, u8 /*isUpNow*/) {
+void KeyboardHandler(coop::u32 key, coop::u16 /*repeats*/, coop::u8 /*scan*/,
+                     coop::u8 /*extended*/, coop::u8 /*withAlt*/,
+                     coop::u8 /*wasDown*/, coop::u8 /*isUpNow*/) {
     coop::CoopContext::Instance().Menu().OnKey(key);
 }
 

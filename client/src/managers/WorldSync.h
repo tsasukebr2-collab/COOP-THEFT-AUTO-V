@@ -34,6 +34,7 @@ private:
     u32 lastApplyMs_ = 0;
     u8 lastClockH_ = 255;
     u8 lastClockM_ = 255;
+    u8 lastClockS_ = 255;
     u8 lastWeather_ = 255;
     u8 lastWanted_ = 255;
 };

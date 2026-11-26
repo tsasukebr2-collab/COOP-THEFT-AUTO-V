@@ -6,6 +6,7 @@
 
 #include "../../shared/coop/Types.h"
 #include "../../protocol/coop/protocol/Messages.h"
+#include "../natives/ShvCompat.h"   // ScrVehicle, ScrHash
 
 #include <map>
 

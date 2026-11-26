@@ -22,6 +22,7 @@ class PlayerManager {
 public:
     // ---- local -------------------------------------------------------------
     LocalPlayerState& Local() { return local_; }
+    const LocalPlayerState& Local() const { return local_; }
 
     // Snapshot own ped for the wire (script thread only).
     proto::Move CaptureLocalMove(u32 tick, u64 vehicleGuid, u8 seat);

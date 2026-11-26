@@ -63,6 +63,9 @@ using ScrPed = i32;
 using ScrVehicle = i32;
 using ScrPlayer = i32;
 using ScrHash = u32;
+// Script BOOL: 32-bit int on the script VM (nonzero = true). Trailing
+// underscore avoids the windows.h BOOL macro.
+using BOOL_ = i32;
 
 // Game Vector3 as returned by vector natives: padded per component (24 bytes).
 struct ScrVec3 {
