@@ -2,6 +2,7 @@
 add_library(coop_client SHARED
     src/dllmain.cpp
     src/CoopContext.cpp
+    src/net/ClientNet.cpp
     src/natives/ShvCompat.cpp
     src/managers/RemotePlayer.cpp
     src/managers/PlayerManager.cpp
@@ -18,4 +19,5 @@ target_compile_definitions(coop_client PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX)
 set_target_properties(coop_client PROPERTIES
     OUTPUT_NAME "GTAVCoop"
     SUFFIX ".asi"
+    PREFIX ""   # MinGW prefixaria com "lib"; MSVC não usa prefixo
 )
