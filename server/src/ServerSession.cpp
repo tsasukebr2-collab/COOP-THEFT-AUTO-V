@@ -15,6 +15,8 @@
 
 namespace coop {
 
+using namespace proto;  // MSG_* ids, message structs, frame helpers
+
 namespace {
 u64 NowMs() {
     return (u64)std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -358,7 +360,7 @@ void CoopServer::TickUdp(u64 nowMs) {
         std::memcpy(&token, buf + 6, 8);
         auto it = clients_.find(clientId);
         if (it == clients_.end()) continue;
-        ServerClient& c = *it;
+        ServerClient& c = it->second;
         if (token != c.sessionToken) {
             Log::Warn("udp token mismatch clientId=%u (spoof or stale token)", clientId);
             continue;
