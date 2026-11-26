@@ -18,7 +18,7 @@ GTAV-Coop/
 ├── protocol/  protocolo de rede compartilhado cliente+servidor+testes
 ├── server/    servidor dedicado (sessão, relay, save autoritativo)
 ├── client/    plugin ASI (GTAVCoop.asi) para o GTA V
-�├── tests/     suíte de testes sem o jogo (protocolo + save)
+├── tests/     suíte de testes sem o jogo (protocolo + save)
 ├── tools/     gerador de natives (hashes exatos do banco público)
 ├── scripts/   build.ps1
 └── docs/      arquitetura, protocolo, instalação, testes, limitações

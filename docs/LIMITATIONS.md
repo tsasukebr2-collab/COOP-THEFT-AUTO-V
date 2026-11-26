@@ -24,7 +24,7 @@ usado por projetos coop existentes.
 ## 2. Dinheiro
 
 A carteira do SP não tem native estável (mora em globals version-dependent —
-quebram a cada patch e corrompem se endereçados errado). A v1:
+quebram a cada patch e corrompem se endereçados errados). A v1:
 
 - O formato do save reserva espelho de dinheiro (`SlotData::money`,
   serializado na seção PLAYER), mas ele nunca é populado na v1 — não há
