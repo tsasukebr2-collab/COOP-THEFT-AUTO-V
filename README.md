@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# COOP-THEFT-AUTO-V
-a coop mod made with ai and source code assistence
-=======
 # GTAV-Coop — Multiplayer Coop para o Modo História do GTA V
 
 Transforma a campanha single-player em coop online: mundo compartilhado,
@@ -69,4 +65,3 @@ clonados, integração fina por missão exige registro missão-por-missão.
 ## Licença / uso
 
 Uso privado e educacional. Não afiliado à Rockstar. Não use em GTA Online.
->>>>>>> f79c9ea (not tested)
