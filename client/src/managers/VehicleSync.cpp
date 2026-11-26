@@ -12,13 +12,14 @@ constexpr f32 kSnapDistance = 15.0f;
 u8 PackTyres(ScrVehicle v) {
     u8 mask = 0;
     for (int i = 0; i < 8; ++i)
-        if (IS_VEHICLE_TYRE_BURST(v, i)) mask |= u8(1 << i);
+        if (IS_VEHICLE_TYRE_BURST(v, i, 0)) mask |= u8(1 << i);
     return mask;
 }
 
 u8 PackFlags(ScrVehicle v) {
     u8 flags = 0;
-    i32 lights = GET_VEHICLE_LIGHTS_STATE(v);
+    i32 lights = 0, highbeams = 0;
+    GET_VEHICLE_LIGHTS_STATE(v, &lights, &highbeams);
     if (lights == 1 || lights == 2) flags |= 1;   // lights on / high beams
     return flags;
 }
@@ -40,12 +41,13 @@ proto::VehicleState VehicleSync::Capture(ScrVehicle v, u64 guid, u32 ownerId) {
     st.engineHealth = GET_VEHICLE_ENGINE_HEALTH(v);
     st.bodyHealth = GET_VEHICLE_BODY_HEALTH(v);
 
-    i32 lights = GET_VEHICLE_LIGHTS_STATE(v);
+    i32 lights = 0, highbeams = 0;
+    GET_VEHICLE_LIGHTS_STATE(v, &lights, &highbeams);
     st.flags = u8((lights == 1 || lights == 2) ? 1 : 0);
     // Siren state has no getter native; we track it client-side when we set it.
     st.tyreMask = PackTyres(v);
 
-    ScrPed driver = GET_PED_IN_VEHICLE_SEAT(v, -1);
+    ScrPed driver = GET_PED_IN_VEHICLE_SEAT(v, -1, 0);
     st.driverGuid = 0; // resolved by caller (PlayerManager guid of driver)
     return st;
 }
@@ -70,8 +72,8 @@ ScrVehicle VehicleSync::EnsureSpawned(u64 guid, ScrHash model, const Vec3& pos, 
     if (v == 0) return 0;
 
     SET_MODEL_AS_NO_LONGER_NEEDED(model);
-    SET_ENTITY_AS_MISSION_ENTITY(v);
-    SET_VEHICLE_ON_GROUND_PROPERLY(v);
+    SET_ENTITY_AS_MISSION_ENTITY(v, 1, 1);
+    SET_VEHICLE_ON_GROUND_PROPERLY(v, 0.0f);
 
     Entry& e = entries_[guid];
     e.vehicle = v;

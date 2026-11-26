@@ -9,7 +9,6 @@
 namespace coop {
 
 namespace {
-constexpr u32 VK_F9 = 0x78;
 
 bool KeyPressedEdge(bool& wasDown, u32 vk) {
     bool down = (GetAsyncKeyState(int(vk)) & 0x8000) != 0;
@@ -31,9 +30,9 @@ void CoopMenu::PushChat(u32 clientId, const std::string& text) {
 
 void CoopMenu::DrawPanel(f32 cx, f32 cy, f32 w, f32 h) const {
     // background
-    DRAW_RECT(cx, cy, w, h, 0, 0, 0, 200);
+    DRAW_RECT(cx, cy, w, h, 0, 0, 0, 200, 0);
     // top accent
-    DRAW_RECT(cx, cy - h / 2.f + 0.008f, w, 0.016f, 255, 140, 0, 255);
+    DRAW_RECT(cx, cy - h / 2.f + 0.008f, w, 0.016f, 255, 140, 0, 255, 0);
 }
 
 void CoopMenu::DrawTextLine(const std::string& text, f32 x, f32 y, f32 scale,
@@ -41,11 +40,11 @@ void CoopMenu::DrawTextLine(const std::string& text, f32 x, f32 y, f32 scale,
     SET_TEXT_FONT(0);
     SET_TEXT_SCALE(scale, scale);
     SET_TEXT_COLOUR(int(r), int(g), int(b), int(a));
-    SET_TEXT_OUTLINE(1);
+    SET_TEXT_OUTLINE();
     SET_TEXT_CENTRE(center ? 1 : 0);
-    BEGIN_TEXT_COMMAND_DISPLAY_TEXT("STRING", 0);
+    BEGIN_TEXT_COMMAND_DISPLAY_TEXT("STRING");
     ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(text.c_str());
-    END_TEXT_COMMAND_DISPLAY_TEXT(x, y);
+    END_TEXT_COMMAND_DISPLAY_TEXT(x, y, 0);
 }
 
 void CoopMenu::Tick(CoopContext& ctx, u64 nowMs) {

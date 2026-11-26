@@ -4,6 +4,7 @@
 #pragma once
 
 #include "../../shared/coop/Types.h"
+#include "../natives/ShvCompat.h"   // Scr* entity handles
 
 #include <map>
 

@@ -78,8 +78,8 @@ void RemotePlayer::EnsurePed(const Vec3& pos) {
     if (p == 0) return;
 
     SET_MODEL_AS_NO_LONGER_NEEDED(model);
-    SET_ENTITY_AS_MISSION_ENTITY(p);
-    SET_ENTITY_INVINCIBLE(p, 0);
+    SET_ENTITY_AS_MISSION_ENTITY(p, 1, 1);
+    SET_ENTITY_INVINCIBLE(p, 0, 0);
     SET_PED_CAN_RAGDOLL(p, 1);
     SET_PED_ACCURACY(p, 100);
     ped_ = p;
@@ -138,8 +138,8 @@ void RemotePlayer::Tick(u64 nowMs) {
     SET_ENTITY_COORDS(ped_, pos.x, pos.y, pos.z, 0, 0, 0, 1);
     SET_ENTITY_HEADING(ped_, yaw);
 
-    if (dead_ && !IS_ENTITY_DEAD(ped_)) SET_ENTITY_HEALTH(ped_, 0);
-    if (!dead_ && IS_ENTITY_DEAD(ped_)) SET_ENTITY_HEALTH(ped_, health_);
+    if (dead_ && !IS_ENTITY_DEAD(ped_, 0)) SET_ENTITY_HEALTH(ped_, 0, 0, 0);
+    if (!dead_ && IS_ENTITY_DEAD(ped_, 0)) SET_ENTITY_HEALTH(ped_, health_, 0, 0);
 
     if (clothesDirty_) {
         for (int c = 0; c < 12; ++c)

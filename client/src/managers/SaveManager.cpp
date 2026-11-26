@@ -146,7 +146,7 @@ void SaveManager::ApplyToGame() {
         SET_PED_AMMO(ped, ScrHash(w.hash), w.ammo, 0);
     }
     if (state_.slots[0].health > 0)
-        SET_ENTITY_HEALTH(ped, state_.slots[0].health);
+        SET_ENTITY_HEALTH(ped, state_.slots[0].health, 0, 0);
     if (state_.slots[0].armour > 0)
         SET_PED_ARMOUR(ped, state_.slots[0].armour);
 }

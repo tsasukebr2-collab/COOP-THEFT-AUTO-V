@@ -2,6 +2,8 @@
 #pragma once
 
 #include "../../shared/coop/Types.h"
+#include "ByteBuffer.h"   // Writer/Reader (serialização wire)
+#include "Quantize.h"     // PackPos/UnpackPos/PackYaw/UnpackYaw
 
 #include <string>
 #include <vector>

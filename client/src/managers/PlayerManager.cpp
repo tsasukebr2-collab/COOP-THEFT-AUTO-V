@@ -20,12 +20,12 @@ proto::Move PlayerManager::CaptureLocalMove(u32 tick, u64 vehicleGuid, u8 seat) 
     m.health = u16(GET_ENTITY_HEALTH(ped) > 0 ? GET_ENTITY_HEALTH(ped) : 0);
     m.armour = u8(GET_PED_ARMOUR(ped));
     m.slot = u8(local_.slot);
-    m.inVehicle = IS_PED_IN_ANY_VEHICLE(ped) ? 1 : 0;
+    m.inVehicle = IS_PED_IN_ANY_VEHICLE(ped, 0) ? 1 : 0;
     m.vehicleGuid = vehicleGuid;
     m.seat = seat;
     m.weaponHash = GET_SELECTED_PED_WEAPON(ped);
     m.ammo = u16(GET_AMMO_IN_PED_WEAPON(ped, ScrHash(m.weaponHash)));
-    m.dead = IS_ENTITY_DEAD(ped) ? 1 : 0;
+    m.dead = IS_ENTITY_DEAD(ped, 0) ? 1 : 0;
     return m;
 }
 

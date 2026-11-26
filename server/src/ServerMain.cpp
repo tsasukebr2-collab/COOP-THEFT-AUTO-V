@@ -11,8 +11,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 static coop::CoopServer* g_server = nullptr;
-static void WINAPI ConsoleCtrl(DWORD type) {
+static BOOL WINAPI ConsoleCtrl(DWORD /*type*/) {
     if (g_server) g_server->Stop();
+    return TRUE;
 }
 #endif
 

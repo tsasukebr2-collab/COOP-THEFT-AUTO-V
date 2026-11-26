@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# COOP-THEFT-AUTO-V
-a coop mod made with ai and source code assistence
-=======
 # GTAV-Coop — Multiplayer Coop para o Modo História do GTA V
 
 Transforma a campanha single-player em coop online: mundo compartilhado,
@@ -45,10 +41,14 @@ Detalhes: [docs/INSTALL.md](docs/INSTALL.md)
 - Sessão 2–4+ jogadores, migração de host, tokens anti-spoof no UDP
 - Representação de jogadores remotos (ped local interpolado, roupas, vida,
   armas, morte/respawn), lock de protagonista por jogador
-- Veículos: motorista-autoridade, dano, pneus, luzes, spawn por GUID
-- Mundo: relógio, clima, procurado, explosões
+- Veículos: motorista-autoridade, dano de motor/carroceria, spawn por GUID
+  (pneus e luzes são transmitidos; aplicação remota é roadmap)
+- Mundo: relógio, clima, procurado (host, `MSG_WORLD`); explosões têm o
+  caminho pronto (relay + `ADD_EXPLOSION`), emissão no cliente é roadmap
 - Missões: FSM IDLE→STARTING→ACTIVE→CHECKPOINT→COMPLETED/FAILED com
-  registro por missão; incompatíveis são declaradas (sem sync fake)
+  registro por missão; incompatíveis são declaradas (sem sync fake).
+  Recepção de `MSG_MISSION_STATE` pronta (relay com guarda de host);
+  emissão pelo host é roadmap imediato
 - Save cooperativo (modelo **Seamless Co-op**, só nos saves): formato COOP1
   (CRC32 por seção), escrita atômica, 5 backups rotativos, guard de versão,
   recuperação de corrupção, um save por grupo no servidor adotado
@@ -59,6 +59,7 @@ Detalhes: [docs/INSTALL.md](docs/INSTALL.md)
   (polícia, serviços, civis, personagens da história) — sincronizado pra
   todos, incluindo quem entrar depois; "Original" restaura o protagonista
 - Menu F9 discreto (conectar, jogadores, saves, configurações) + chat
+  (exibição; input de envio é roadmap)
 
 ## O que é honestamente limitado (v1)
 
@@ -69,4 +70,3 @@ clonados, integração fina por missão exige registro missão-por-missão.
 ## Licença / uso
 
 Uso privado e educacional. Não afiliado à Rockstar. Não use em GTA Online.
->>>>>>> f79c9ea (not tested)

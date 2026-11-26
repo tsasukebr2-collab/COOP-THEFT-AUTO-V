@@ -68,7 +68,7 @@ private:
 
     TcpConn tcp_;
     UdpSocket udp_;
-    FrameParser parser_;
+    proto::FrameParser parser_;
 
     std::atomic<NetState> state_{NetState::DISCONNECTED};
     std::atomic<u32> clientId_{0};

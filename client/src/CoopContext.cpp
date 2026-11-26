@@ -168,7 +168,7 @@ void CoopContext::PumpUdp() {
 
 void CoopContext::CheckVehicleEnterExit() {
     ScrPed ped = PLAYER_PED_ID();
-    bool inVeh = IS_PED_IN_ANY_VEHICLE(ped) != 0;
+    bool inVeh = IS_PED_IN_ANY_VEHICLE(ped, 0) != 0;
     if (inVeh != (lastInVehicle_ != 0)) {
         lastInVehicle_ = inVeh ? 1 : 0;
         if (inVeh) {

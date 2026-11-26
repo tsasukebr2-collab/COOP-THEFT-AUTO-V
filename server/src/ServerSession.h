@@ -21,7 +21,7 @@ struct ServerClient {
     u64 sessionToken = 0;      // issued at WELCOME, required for reconnect
     u64 modelHash = 0;         // last announced ped skin (stamped into PLAYER_JOINED)
     std::unique_ptr<TcpConn> tcp;
-    FrameParser parser;
+    proto::FrameParser parser;
     std::string udpIp;
     u16 udpPort = 0;           // learned from first UDP ping
     u64 lastSeenMs = 0;        // last TCP/UDP activity
