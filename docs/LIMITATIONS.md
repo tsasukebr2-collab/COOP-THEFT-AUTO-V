@@ -2,16 +2,18 @@
 
 Este documento lista o que NÃO está sincronizado na v1 e o motivo técnico.
 Nada aqui é "fingido": onde não há sync, o sistema declara e trata.
+Cada afirmação abaixo foi auditada contra o código-fonte (revisão de
+2026-11-26, branch `fix/build-errors`).
 
 ## 1. Missões originais
 
 | Cenário | Estado v1 |
 |---|---|
-| Estado da missão (IDLE→STARTING→ACTIVE→CHECKPOINT→COMPLETED/FAILED) | Sincronizado via `MissionSyncManager` (host = autoridade) |
-| Início/falha/conclusão compartilhados | Sincronizado |
-| Checkpoints | Sincronizados quando definidos no registro de missões (`maxCheckpoints`) |
+| Estado da missão (IDLE→STARTING→ACTIVE→CHECKPOINT→COMPLETED/FAILED) | FSM implementada no cliente (`MissionSync`, host = autoridade). A mensagem `MSG_MISSION_STATE` existe no protocolo, o servidor repassa com guarda de host e o cliente remoto aplica — mas o host ainda NÃO emite a mensagem no tick; até a emissão ser ligada, o estado fica local |
+| Início/falha/conclusão compartilhados | Caminho de recepção pronto (relay + apply); envio pelo host pendente (roadmap imediato) |
+| Checkpoints | Definidos por missão no registro (`maxCheckpoints`); seguem a mesma emissão pendente acima |
 | Detecção automática de conclusão por missão | Heurística (flag de missão + config). Cada missão com lógica própria precisa de entrada no registro |
-| Missões unsupported (Prologue, escritório solo, Chop) | Declaradas no registro como `supported=false`: host joga solo, clientes são avisados e ficam de stand-down. Não há sync fake |
+| Missões unsupported (Prologue, escritório solo, Chop) | Declaradas no registro como `supported=false`: host joga solo. O aviso automático aos clientes ainda não está ligado (`IsSupported` existe no código mas ainda não é consumido — roadmap) |
 | Atores scriptados dentro de missões | Não sincronizados na v1 (requer integração por missão) |
 
 Por quê: o fluxo interno de cada missão roda em bytecode scriptado
@@ -24,38 +26,46 @@ usado por projetos coop existentes.
 A carteira do SP não tem native estável (mora em globals version-dependent —
 quebram a cada patch e corrompem se endereçados errado). A v1:
 
-- Guarda espelho de dinheiro no save coop (informacional, UI)
+- O formato do save reserva espelho de dinheiro (`SlotData::money`,
+  serializado na seção PLAYER), mas ele nunca é populado na v1 — não há
+  native estável nem para LER a carteira; a UI informativa é roadmap
 - NÃO escreve no wallet do jogo (evita corrupção)
 - Roadmap: tabela de offsets por versão do jogo, aplicada via `getGlobalPtr`
   com validação de versão
 
 ## 3. NPCs ambientais
 
-- NPCs "compartilhados" (spawnados pelo sistema de spawn coop e atores de
-  missão marcados) sincronizam posição/vida/morte (`MSG_NPC` no protocolo,
-  `NpcSyncManager` ponto de encaixe)
+- NPCs "compartilhados" (spawnados pelo sistema de spawn coop): NÃO
+  sincronizados na v1. O protocolo reserva `MSG_NPC`/`NpcState`
+  (posição/vida/morte, `npcType` = ambient/police/missionActor) como ponto
+  de encaixe, mas nenhum código envia ou trata a mensagem hoje — e o spawn
+  aplicado no cliente cobre apenas veículos (`entityType == 1`). O manager
+  de NPCs é roadmap
 - NPCs de tráfego ambientais NÃO são clonados entre máquinas na v1: cada
   cliente roda a população local do jogo; sincronizar tudo explode
   bandwidth e duplicaria entidades (o jogo já os spawna dos mesmos seeds na
   maioria dos casos)
-- Polícia: nível de procurado e eventos de explosão são compartilhados
+- Polícia: o nível de procurado é compartilhado (`MSG_WORLD` do host, 2 Hz).
+  Eventos de explosão têm o caminho pronto (relay no servidor +
+  `ADD_EXPLOSION` no cliente), mas a captura/emissão no cliente é roadmap
 
 ## 4. Física de veículos
 
 - Motorista = autoridade; remotos aplicam estado com aproximação suavizada
   e snap em saltos > 15 m
-- v1 usa lerp de posição/heading + sync de vida de motor/carroceria/pneus;
-  integração de velocidade e blending de quaternion (evitar "sobe-e-desce"
-  em rampas) são Fase 3
+- v1 usa lerp de posição/heading + sync de vida de motor/carroceria; o mask
+  de pneus e o estado de luzes são capturados e transmitidos, mas a
+  aplicação remota é roadmap; integração de velocidade e blending de
+  quaternion (evitar "sobe-e-desce" em rampas) são Fase 3
 
 ## 5. Reconexão
 
 - Reconectar re-entra na sessão com o save compartilhado (continuidade de
   progresso garantida pelo SaveStore versionado)
 - Reaproveitar o MESMO slot/clientId via session token é roadmap (o token
-  já é emitido e validado no UDP)
+  já é emitido no WELCOME e validado em cada datagrama UDP)
 
-## 5. Skins (modelos de NPC)
+## 6. Skins (modelos de NPC)
 
 - O catálogo do menu é uma lista curada de nomes de assets do jogo (nomes
   públicos usados por todo mod de SP). Nenhum hash é fixo: tudo é resolvido
@@ -68,10 +78,11 @@ quebram a cada patch e corrompem se endereçados errado). A v1:
   ficam quebrados com esqueleto não-humanoide); nada impede adicionar por
   conta própria se souber o nome do asset
 
-## 6. Itens do spec não cobertos na v1
+## 7. Itens do spec não cobertos na v1
 
 - Convites (sem integração com RGSC/Steam friends — conexão é por IP)
-- Voz/chat de voz (chat de texto incluído)
-- Sincronização de interiores complexos (estado de portas incluído no
-  protocolo, UI ainda não expõe)
-- Servidor dedicado Linux (código POSIX de sockets já isolation em Net.cpp)
+- Voz/chat de voz (não cobertos); chat de texto: recepção e exibição
+  funcionam (`MSG_CHAT` + feed no menu), o input de envio é roadmap
+- Sincronização de interiores complexos e estado de portas: NÃO há
+  mensagem de porta no protocolo na v1 (roadmap)
+- Servidor dedicado Linux (código POSIX de sockets já isolado em `Net.cpp`)
